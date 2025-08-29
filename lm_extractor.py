@@ -169,7 +169,8 @@ And this context/timeline information: "{context_string}"
 Phase 2 Analysis:
 1. Identify ALL useful variables mentioned (numbers, timeframes, experience, etc.)
 2. Categorize each variable by type:
-3. Be cognizant that certain 
+3. IMPORTANT: For company names, extract ANY company reference regardless of capitalization or spacing. "OpenAI", "open ai", "OPENAI", "google", "Google" are ALL target entities.
+3. IMPORTANT: For company names, extract ANY company reference regardless of capitalization or spacing. "OpenAI", "open ai", "OPENAI", "google", "Google" are ALL target entities.
 
 Variable categories:
 - time: examples being durations, frequencies, deadlines (4 hours/day, 6 months, 2 years)
@@ -238,6 +239,7 @@ And this context/timeline information: "{context_string}"
 Phase 2 Analysis:
 1. Identify ALL useful variables mentioned (numbers, timeframes, experience, etc.)
 2. Categorize each variable by type:
+3. IMPORTANT: For company names, extract ANY company reference regardless of capitalization or spacing. "OpenAI", "open ai", "OPENAI", "google", "Google" are ALL target entities.
 
 Variable categories:
 - time: examples being durations, frequencies, deadlines (4 hours/day, 6 months, 2 years)
