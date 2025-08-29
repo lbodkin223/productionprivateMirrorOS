@@ -9,20 +9,23 @@
 ### **Repository Structure** 
 ```
 MirrorOS Final System
-├── mirroros-final-private/     🔒 Private (this repo)
-│   ├── server.py               🚀 Flask API server
+├── MirrorOS-Final-Private/     🔒 Private (this repo)
+│   ├── server.py               🚀 Flask API server with FRED integration
 │   ├── lm_extractor.py         🤖 GPT-4o extraction system
+│   ├── fred_integration.py     📈 FRED economic data integration
+│   ├── buildspec.yml           🏗️ AWS CodeBuild configuration
 │   ├── Dockerfile              🐳 AWS deployment
-│   └── requirements.txt        📦 Dependencies
+│   ├── .env                    🔐 Environment variables
+│   └── requirements.txt        📦 Dependencies (includes fredapi)
 │
-└── mirroros-final-public/      🌐 Public (mobile repo)
+└── MirrorOS-Final-Public/      🌐 Public (mobile repo)
     ├── MirrorOSApp.tsx         📱 React Native app
-    ├── app.json                ⚙️ Expo configuration
+    ├── app.config.js           ⚙️ Expo configuration
     └── package.json            📦 Node dependencies
 ```
 
 ### **GitHub Repositories**
-- **Private API**: `https://github.com/lbodkin223/mirroros-final-private.git`
+- **Private API**: `https://github.com/lbodkin223/productionprivateMirrorOS.git`
 - **Public Mobile**: `https://github.com/lbodkin223/mirroros-final-public.git`
 
 ### **Clean Data Flow**
@@ -86,6 +89,7 @@ standardized = standardize_to_integers(variables, categories)
 ```bash
 OPENAI_API_KEY=sk-...
 ANTHROPIC_API_KEY=sk-ant-...  # Backup LLM
+FRED_API_KEY=3f4a3669dcef7d3509b06a2bde989993  # FRED Economic Data
 FLASK_ENV=production
 PORT=8080
 HOST=0.0.0.0
@@ -123,36 +127,47 @@ EXPO_PUBLIC_ENVIRONMENT=production
 
 ---
 
-## ☁️ **AWS INFRASTRUCTURE UPDATES REQUIRED**
+## ☁️ **AWS INFRASTRUCTURE - DEPLOYED**
 
-### **Current State**
-- **Old Repo**: `lbodkin223/mirroros-private.git`
-- **ECS Service**: `mirroros-private-api-service` 
-- **CodeBuild**: `mirroros-private-api-build`
+### **Current Deployment Status**
+- **✅ Repository**: `https://github.com/lbodkin223/productionprivateMirrorOS.git`
+- **✅ ECS Cluster**: `mirroros-production-cluster`
+- **✅ ECS Service**: `mirroros-private-api-service` 
+- **✅ CodeBuild**: `mirroros-private-api-build`
+- **✅ ECR Repository**: `423636639115.dkr.ecr.us-east-2.amazonaws.com/mirroros-private-api`
+- **✅ API Gateway**: `https://yyk4197cr6.execute-api.us-east-2.amazonaws.com/prod/api`
+- **✅ Load Balancer**: `mirroros-private-tg` target group
 
-### **Required Changes**
-1. **Update CodeBuild Source**:
-   ```bash
-   aws codebuild update-project \
-     --name mirroros-private-api-build \
-     --source type=GITHUB,location=https://github.com/lbodkin223/mirroros-final-private
-   ```
+### **FRED Economic Integration**
+- **✅ FRED API**: Live economic data integration
+- **✅ Enhanced Predictions**: Economic context adjusts success probabilities
+- **✅ New Endpoint**: `/economic-data` for direct economic indicators
+- **✅ Dependencies**: fredapi==0.5.1 added to requirements.txt
 
-2. **Update ECS Task Definition**:
-   - Point to new Docker image from mirroros-final-private
-   - Ensure OPENAI_API_KEY environment variable is set
-   - Update health check paths if needed
-
-3. **Verify Environment Variables**:
-   - `OPENAI_API_KEY` - Critical for LLM functionality
-   - `ANTHROPIC_API_KEY` - Optional backup LLM
-   - Standard Flask variables (PORT, HOST, FLASK_ENV)
-
-### **Deployment Commands** (After AWS Updates)
+### **Deployment Commands**
 ```bash
-# Build and deploy from new repo
-aws codebuild start-build --project-name mirroros-private-api-build
+# Manual Docker deployment (when CodeBuild buildspec issues occur)
+cd "/Users/liambodkin/Documents/MirrorOS-Production/MirrorOS-Final-Private"
+aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 423636639115.dkr.ecr.us-east-2.amazonaws.com
+docker build -t mirroros-private-api-fred .
+docker tag mirroros-private-api-fred:latest 423636639115.dkr.ecr.us-east-2.amazonaws.com/mirroros-private-api:latest
+docker push 423636639115.dkr.ecr.us-east-2.amazonaws.com/mirroros-private-api:latest
 aws ecs update-service --cluster mirroros-production-cluster --service mirroros-private-api-service --force-new-deployment
+
+# Automatic CodeBuild deployment (when buildspec works)
+aws codebuild start-build --project-name mirroros-private-api-build
+```
+
+### **Service Health Checks**
+```bash
+# Check ECS service status
+aws ecs describe-services --cluster mirroros-production-cluster --services mirroros-private-api-service
+
+# Check task health
+aws elbv2 describe-target-health --target-group-arn arn:aws:elasticloadbalancing:us-east-2:423636639115:targetgroup/mirroros-private-tg/0cfd102ace7cae3d
+
+# Test API (returns 401 - expected due to API Gateway auth)
+curl https://yyk4197cr6.execute-api.us-east-2.amazonaws.com/prod/api/health
 ```
 
 ---

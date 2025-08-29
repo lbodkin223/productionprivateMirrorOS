@@ -8,10 +8,23 @@ from datetime import datetime
 from dotenv import load_dotenv
 from flask import Flask, request, jsonify
 from lm_extractor import full_extraction_pipeline
-from fred_integration import enhance_prediction_with_economic_data, get_economic_indicators
 
 # Load environment variables
 load_dotenv()
+
+# Optional FRED integration with fallback
+try:
+    from fred_integration import enhance_prediction_with_economic_data, get_economic_indicators
+    FRED_AVAILABLE = True
+    print("🏦 FRED Economic Data integration loaded")
+except ImportError as e:
+    print(f"⚠️  FRED integration unavailable: {e}")
+    FRED_AVAILABLE = False
+    # Fallback functions
+    def enhance_prediction_with_economic_data(probability, domain='general'):
+        return probability
+    def get_economic_indicators():
+        return None
 
 app = Flask(__name__)
 
@@ -22,6 +35,13 @@ def health():
 @app.route('/economic-data', methods=['GET'])
 def economic_data():
     """Get current economic indicators from FRED API."""
+    if not FRED_AVAILABLE:
+        return jsonify({
+            'status': 'unavailable', 
+            'message': 'FRED integration not available',
+            'timestamp': datetime.now().isoformat()
+        }), 503
+    
     try:
         indicators = get_economic_indicators()
         if indicators:
