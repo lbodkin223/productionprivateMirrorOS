@@ -106,15 +106,30 @@ def predict():
 
 def calculate_probability_from_data(data, domain):
     """Calculate probability using standardized integer data."""
+    print(f"🔍 Debug - Extracted data: {data}")
+    print(f"🔍 Debug - Domain: {domain}")
+    
     probability = 0.5  # Base 50%
     
-    # Company selectivity adjustment
+    # Company selectivity adjustment (primary method)
     if 'selectivity_score' in data:
         selectivity = data['selectivity_score']
+        print(f"🔍 Debug - Selectivity score: {selectivity}")
         if selectivity >= 90:
             probability *= 0.15  # Very competitive (OpenAI, Google)
+            print(f"🔍 Debug - High selectivity penalty applied, probability: {probability}")
         elif selectivity >= 80:
             probability *= 0.25  # Competitive
+            print(f"🔍 Debug - Medium selectivity penalty applied, probability: {probability}")
+    # Fallback company detection (if selectivity_score not available)
+    elif 'target_company' in data:
+        target = str(data['target_company']).lower()
+        print(f"🔍 Debug - Target company: {target}")
+        if any(company in target for company in ['openai', 'google', 'microsoft', 'apple', 'meta']):
+            probability *= 0.1  # Very competitive companies
+            print(f"🔍 Debug - Detected competitive company, probability: {probability}")
+        elif any(company in target for company in ['startup', 'small company', 'local']):
+            probability *= 0.8  # Less competitive
     
     # Timeline adjustment
     if 'timeline_months' in data:
@@ -142,7 +157,9 @@ def calculate_probability_from_data(data, domain):
         elif hours < 1:
             probability *= 0.7  # Low effort
     
-    return max(0.01, min(0.99, probability))
+    final_probability = max(0.01, min(0.99, probability))
+    print(f"🎯 Debug - Final probability: {final_probability}")
+    return final_probability
 
 if __name__ == '__main__':
     print("🚀 Starting MirrorOS Final Private API")
