@@ -44,14 +44,13 @@ def _try_anthropic_goal_analysis(goal_string, api_key):
                 "content": f"""Analyze this goal: "{goal_string}"
 
 Phase 1 Analysis:
-1. What specific goal is the user trying to accomplish? (Be precise and specific)
-2. What domain does this goal belong to?
+Identify what the user wants to accomplish. Is it most aligned with career, finance, fitness, dating, academic, business, travel, or another domain?
 
 Choose domain from: career, finance, fitness, dating, academic, business, travel
 
 Format your response as JSON:
 {{
-    "goal": "specific goal description",
+    "goal": "what the user wants to accomplish",
     "domain": "domain_name"
 }}"""
             }
@@ -90,14 +89,13 @@ def _try_openai_goal_analysis(goal_string, api_key):
                 "content": f"""Analyze this goal: "{goal_string}"
 
 Phase 1 Analysis:
-1. What specific goal is the user trying to accomplish? (Be precise and specific)
-2. What domain does this goal belong to?
+Identify what the user wants to accomplish. Is it most aligned with career, finance, fitness, dating, academic, business, travel, or another domain?
 
 Choose domain from: career, finance, fitness, dating, academic, business, travel
 
 Format your response as JSON:
 {{
-    "goal": "specific goal description",
+    "goal": "what the user wants to accomplish",
     "domain": "domain_name"
 }}"""
             }
