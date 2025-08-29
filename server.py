@@ -4,14 +4,36 @@ Clean server with LLM-powered extraction only
 """
 
 import os
+from datetime import datetime
+from dotenv import load_dotenv
 from flask import Flask, request, jsonify
 from lm_extractor import full_extraction_pipeline
+from fred_integration import enhance_prediction_with_economic_data, get_economic_indicators
+
+# Load environment variables
+load_dotenv()
 
 app = Flask(__name__)
 
 @app.route('/health', methods=['GET'])
 def health():
     return jsonify({'status': 'ok', 'system': 'mirroros-final-private'})
+
+@app.route('/economic-data', methods=['GET'])
+def economic_data():
+    """Get current economic indicators from FRED API."""
+    try:
+        indicators = get_economic_indicators()
+        if indicators:
+            return jsonify({
+                'status': 'success',
+                'data': indicators,
+                'timestamp': datetime.now().isoformat()
+            })
+        else:
+            return jsonify({'error': 'Could not fetch economic data'}), 500
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -40,7 +62,10 @@ def predict():
         
         # Calculate basic probability from standardized data
         standardized_data = result['standardized_data']
-        probability = calculate_probability_from_data(standardized_data, result['domain'])
+        base_probability = calculate_probability_from_data(standardized_data, result['domain'])
+        
+        # Enhance with FRED economic data
+        probability = enhance_prediction_with_economic_data(base_probability, result['domain'])
         
         response = {
             'probability': round(probability, 2),
