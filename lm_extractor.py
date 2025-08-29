@@ -169,8 +169,13 @@ And this context/timeline information: "{context_string}"
 Phase 2 Analysis:
 1. Identify ALL useful variables mentioned (numbers, timeframes, experience, etc.)
 2. Categorize each variable by type:
-3. IMPORTANT: For company names, extract ANY company reference regardless of capitalization or spacing. "OpenAI", "open ai", "OPENAI", "google", "Google" are ALL target entities.
-3. IMPORTANT: For company names, extract ANY company reference regardless of capitalization or spacing. "OpenAI", "open ai", "OPENAI", "google", "Google" are ALL target entities.
+3. CRITICAL: For company names, ALWAYS extract ANY variation as target_entity:
+   - "OpenAI" → extract as target_entity
+   - "open ai" → extract as target_entity  
+   - "OPENAI" → extract as target_entity
+   - "google" → extract as target_entity
+   - "Google" → extract as target_entity
+   - "apple" → extract as target_entity
 
 Variable categories:
 - time: examples being durations, frequencies, deadlines (4 hours/day, 6 months, 2 years)
@@ -179,7 +184,7 @@ Variable categories:
 - experience:examples being education, job history, skills (Northwestern grad, 5 years experience)
 - demographic:examples being  age, location, status (23 years old, San Francisco)
 - performance:examples being  metrics, scores, rates (GPA, success rate, weight)
-- target_entity:examples being companies, institutions, people (OpenAI, open ai, Google, apple, Harvard, Northwestern)
+- target_entity:examples being companies, institutions, people (OpenAI, open ai, OPENAI, Google, google, apple, Apple, Harvard, Northwestern)
 
 Format as JSON:
 {{
@@ -239,7 +244,13 @@ And this context/timeline information: "{context_string}"
 Phase 2 Analysis:
 1. Identify ALL useful variables mentioned (numbers, timeframes, experience, etc.)
 2. Categorize each variable by type:
-3. IMPORTANT: For company names, extract ANY company reference regardless of capitalization or spacing. "OpenAI", "open ai", "OPENAI", "google", "Google" are ALL target entities.
+3. CRITICAL: For company names, ALWAYS extract ANY variation as target_entity:
+   - "OpenAI" → extract as target_entity
+   - "open ai" → extract as target_entity  
+   - "OPENAI" → extract as target_entity
+   - "google" → extract as target_entity
+   - "Google" → extract as target_entity
+   - "apple" → extract as target_entity
 
 Variable categories:
 - time: examples being durations, frequencies, deadlines (4 hours/day, 6 months, 2 years)
@@ -248,7 +259,7 @@ Variable categories:
 - experience:examples being education, job history, skills (Northwestern grad, 5 years experience)
 - demographic:examples being  age, location, status (23 years old, San Francisco)
 - performance:examples being  metrics, scores, rates (GPA, success rate, weight)
-- target_entity:examples being companies, institutions, people (OpenAI, open ai, Google, apple, Harvard, Northwestern)
+- target_entity:examples being companies, institutions, people (OpenAI, open ai, OPENAI, Google, google, apple, Apple, Harvard, Northwestern)
 
 Format as JSON:
 {{
