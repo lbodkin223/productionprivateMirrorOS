@@ -6,8 +6,6 @@ Then convert the integer (if applicable to base metric units)
 this should quantify the strings, it should act as a natural language extractor (lm should be able to detect the difference between open ai and openai for instance) (it should remove the need for standard USVs as now the values are now just provided) the only place they are still useful is when there ISN'T an SI unit then we should create a var or ratio as a best guesstimate but this should be the last resort
 This should remove the need for the library
 Compare LM USV translator string --> lm --> int
-Stripe integration
-White listing
 Final data flow
 imput parser--> lm api --> then lines 2 through 7 --> int --> monte carlo engine --> output parser
 also keep in mind we will have the goal integer and the target integer which will look like this: factor one (operator needed for monte carlo i don't know how to do this) factor two... = probability_projected (this is our guess of what will happen given relevant factors)
