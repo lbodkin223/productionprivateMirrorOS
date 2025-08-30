@@ -1,0 +1,94 @@
+{
+  "timestamp": "20250829_204810",
+  "summary": {
+    "total_tests": 3,
+    "successful": 3,
+    "failed": 0,
+    "success_rate": 1.0
+  },
+  "detailed_results": [
+    {
+      "success": true,
+      "test_case": "OpenAI Career Goal",
+      "data": {
+        "api_version": "2.0-clean",
+        "domain": "career",
+        "explanation": "Analysis indicates 10.0% success probability for your goal.",
+        "probability": 0.1,
+        "probability_percent": "10.0%",
+        "server": "mirroros-simplified",
+        "target_entity": "openai"
+      },
+      "validation": {
+        "si_factors_present": false,
+        "animation_present": false,
+        "animation_steps": 0,
+        "monte_carlo_present": false,
+        "chain_of_thought_present": false,
+        "domain_correct": true,
+        "company_extraction_correct": false
+      },
+      "shareable_test": {
+        "success": false,
+        "error": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n"
+      }
+    },
+    {
+      "success": true,
+      "test_case": "Fitness Goal",
+      "data": {
+        "api_version": "2.0-clean",
+        "domain": "fitness",
+        "explanation": "Analysis indicates 50.0% success probability for your goal.",
+        "probability": 0.5,
+        "probability_percent": "50.0%",
+        "server": "mirroros-simplified",
+        "target_entity": "unknown"
+      },
+      "validation": {
+        "si_factors_present": false,
+        "animation_present": false,
+        "animation_steps": 0,
+        "monte_carlo_present": false,
+        "chain_of_thought_present": false,
+        "domain_correct": true
+      },
+      "shareable_test": {
+        "success": false,
+        "error": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n"
+      }
+    },
+    {
+      "success": true,
+      "test_case": "Finance Goal",
+      "data": {
+        "api_version": "2.0-clean",
+        "domain": "unknown",
+        "explanation": "Analysis indicates 40.0% success probability for your goal.",
+        "probability": 0.4,
+        "probability_percent": "40.0%",
+        "server": "mirroros-simplified",
+        "target_entity": "unknown"
+      },
+      "validation": {
+        "si_factors_present": false,
+        "animation_present": false,
+        "animation_steps": 0,
+        "monte_carlo_present": false,
+        "chain_of_thought_present": false,
+        "domain_correct": false
+      },
+      "shareable_test": {
+        "success": false,
+        "error": "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n"
+      }
+    }
+  ],
+  "features_tested": {
+    "si_factors_extraction": true,
+    "monte_carlo_analysis": true,
+    "chain_of_thought_animation": true,
+    "shareable_odds_generation": true,
+    "domain_classification": true
+  }
+}

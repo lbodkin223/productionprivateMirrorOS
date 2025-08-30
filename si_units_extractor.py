@@ -15,6 +15,10 @@ import os
 import json
 import requests
 from typing import Dict, List, Optional, Union
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 class SIUnitsExtractor:
     """Advanced LLM-powered extraction system using SI units and ratios"""
@@ -22,6 +26,14 @@ class SIUnitsExtractor:
     def __init__(self):
         self.openai_key = os.getenv('OPENAI_API_KEY')
         self.anthropic_key = os.getenv('ANTHROPIC_API_KEY')
+        
+        # Add validation per Claude Code recommendation
+        if not self.openai_key and not self.anthropic_key:
+            print("⚠️ WARNING: No API keys found. Please set OPENAI_API_KEY or ANTHROPIC_API_KEY in .env file")
+        elif self.openai_key and not self.openai_key.startswith('sk-'):
+            print("⚠️ WARNING: OpenAI API key format appears invalid (should start with 'sk-')")
+        elif self.anthropic_key and not self.anthropic_key.startswith('sk-ant-'):
+            print("⚠️ WARNING: Anthropic API key format appears invalid (should start with 'sk-ant-')")
         
     def extract_goal_and_si_factors(self, goal: str, context: str) -> Optional[Dict]:
         """
@@ -62,7 +74,7 @@ class SIUnitsExtractor:
         prompt = self._build_si_extraction_prompt(goal, context)
         
         payload = {
-            "model": "claude-3-5-sonnet-20241022",
+            "model": "claude-3-haiku-20240307",
             "max_tokens": 800,
             "messages": [{"role": "user", "content": prompt}]
         }
@@ -74,9 +86,17 @@ class SIUnitsExtractor:
             result = response.json()
             content = result['content'][0]['text'].strip()
             
-            parsed = json.loads(content)
-            print(f"🎯 Anthropic SI Extraction Success")
-            return self._process_si_extraction_result(parsed)
+            # Extract JSON from the response (Claude often adds explanatory text)
+            json_start = content.find('{')
+            json_end = content.rfind('}') + 1
+            
+            if json_start != -1 and json_end > json_start:
+                json_content = content[json_start:json_end]
+                parsed = json.loads(json_content)
+                print(f"🎯 Anthropic SI Extraction Success")
+                return self._process_si_extraction_result(parsed)
+            else:
+                raise Exception("No JSON found in response")
             
         except Exception as e:
             print(f"❌ Anthropic SI extraction failed: {e}")
@@ -110,9 +130,17 @@ class SIUnitsExtractor:
             result = response.json()
             content = result['choices'][0]['message']['content'].strip()
             
-            parsed = json.loads(content)
-            print(f"🎯 OpenAI SI Extraction Success")
-            return self._process_si_extraction_result(parsed)
+            # Extract JSON from the response (GPT might also add explanatory text)
+            json_start = content.find('{')
+            json_end = content.rfind('}') + 1
+            
+            if json_start != -1 and json_end > json_start:
+                json_content = content[json_start:json_end]
+                parsed = json.loads(json_content)
+                print(f"🎯 OpenAI SI Extraction Success")
+                return self._process_si_extraction_result(parsed)
+            else:
+                raise Exception("No JSON found in response")
             
         except Exception as e:
             print(f"❌ OpenAI SI extraction failed: {e}")
@@ -152,11 +180,23 @@ STANDARDIZED RATIOS (when no SI unit exists):
 - Age: years as integer
 - Effort Level: hours per day as decimal (4.5 hours/day = 4.5)
 
-CRITICAL: Handle company name variations intelligently:
-- "OpenAI", "open ai", "OPENAI" → ALL should be recognized as competitiveness_ratio: 0.95
-- "Google", "google", "GOOGLE" → ALL should be competitiveness_ratio: 0.95  
-- "Apple", "apple" → competitiveness_ratio: 0.9
-- "Microsoft", "microsoft" → competitiveness_ratio: 0.85
+CRITICAL REQUIREMENTS (per final_plan.md):
+1. Recognize company name variations: "OpenAI", "open ai", "OPENAI" are ALL the same company
+2. Extract ALL quantifiable factors from the context  
+3. Convert everything to base SI units or standardized ratios
+4. DO NOT default to old vector system - extract actual values
+
+COMPANY NAME NORMALIZATION (CRITICAL):
+- Treat all variations as identical: "OpenAI"/"open ai"/"OPENAI" = same entity
+- "Google"/"google"/"GOOGLE" = same entity
+- "Apple"/"apple"/"APPLE" = same entity  
+- "Microsoft"/"microsoft"/"MICROSOFT" = same entity
+- Normalize to lowercase in the output for consistency
+- ALL variations should get same competitiveness_ratio:
+  * "OpenAI"/"open ai"/"OPENAI" → competitiveness_ratio: 0.95
+  * "Google"/"google"/"GOOGLE" → competitiveness_ratio: 0.95
+  * "Apple"/"apple"/"APPLE" → competitiveness_ratio: 0.9
+  * "Microsoft"/"microsoft"/"MICROSOFT" → competitiveness_ratio: 0.85
 
 STEP 4: OUTPUT FORMAT
 Return JSON with:

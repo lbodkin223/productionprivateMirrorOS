@@ -253,7 +253,9 @@ class MonteCarloSI:
                     # Positive factor - add to logit
                     logit_adjustment = math.log(adjusted_multiplier)
                 else:
-                    # Negative factor - subtract from logit  
+                    # Negative factor - subtract from logit
+                    # Clamp to prevent math domain errors
+                    adjusted_multiplier = max(0.001, adjusted_multiplier)
                     logit_adjustment = -math.log(1.0 / adjusted_multiplier)
                 
                 current_logit += logit_adjustment
@@ -285,6 +287,8 @@ class MonteCarloSI:
                 if adjusted_multiplier > 1.0:
                     logit_adjustment = math.log(adjusted_multiplier)
                 else:
+                    # Clamp to prevent math domain errors
+                    adjusted_multiplier = max(0.001, adjusted_multiplier)
                     logit_adjustment = -math.log(1.0 / adjusted_multiplier)
                 
                 current_logit += logit_adjustment
