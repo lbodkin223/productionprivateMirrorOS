@@ -1,0 +1,1146 @@
+{
+  "timestamp": "20250828_233007",
+  "summary": {
+    "total": 50,
+    "passed": 36,
+    "failed": 14,
+    "success_rate": 0.72
+  },
+  "company_stats": {
+    "openai": {
+      "total": 3,
+      "passed": 0,
+      "variations": {
+        "lowercase": {
+          "total": 3,
+          "passed": 0
+        }
+      }
+    },
+    "google": {
+      "total": 3,
+      "passed": 0,
+      "variations": {
+        "lowercase": {
+          "total": 3,
+          "passed": 0
+        }
+      }
+    },
+    "apple": {
+      "total": 2,
+      "passed": 0,
+      "variations": {
+        "lowercase": {
+          "total": 2,
+          "passed": 0
+        }
+      }
+    },
+    "microsoft": {
+      "total": 2,
+      "passed": 0,
+      "variations": {
+        "lowercase": {
+          "total": 2,
+          "passed": 0
+        }
+      }
+    },
+    "meta": {
+      "total": 2,
+      "passed": 0,
+      "variations": {
+        "lowercase": {
+          "total": 2,
+          "passed": 0
+        }
+      }
+    },
+    "netflix": {
+      "total": 2,
+      "passed": 0,
+      "variations": {
+        "lowercase": {
+          "total": 2,
+          "passed": 0
+        }
+      }
+    }
+  },
+  "detailed_results": [
+    {
+      "test_id": 1,
+      "domain": "career",
+      "goal": "I want a job at OpenAI",
+      "context": "CS grad, 2 years experience",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected openai, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.18,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: openai, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 2,
+      "domain": "career",
+      "goal": "I want a job at open ai",
+      "context": "CS grad, 2 years experience",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected openai, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.45,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: openai, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 3,
+      "domain": "career",
+      "goal": "I want a job at OPENAI",
+      "context": "CS grad, 2 years experience",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected openai, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.18,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: openai, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 4,
+      "domain": "career",
+      "goal": "I want a job at Google",
+      "context": "Northwestern grad, age 24",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected google, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.18,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: google, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 5,
+      "domain": "career",
+      "goal": "I want a job at google",
+      "context": "Northwestern grad, age 24",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected google, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.18,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: google, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 6,
+      "domain": "career",
+      "goal": "I want a job at GOOGLE",
+      "context": "Northwestern grad, age 24",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected google, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.18,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: google, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 7,
+      "domain": "career",
+      "goal": "I want a job at Apple",
+      "context": "Stanford CS degree",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected apple, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.6,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: apple, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 8,
+      "domain": "career",
+      "goal": "I want a job at apple",
+      "context": "Stanford CS degree",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected apple, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.6,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: apple, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 9,
+      "domain": "career",
+      "goal": "I want a job at Microsoft",
+      "context": "5 years coding experience",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected microsoft, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.16,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: microsoft, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 10,
+      "domain": "career",
+      "goal": "I want a job at microsoft",
+      "context": "5 years coding experience",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected microsoft, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.16,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: microsoft, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 11,
+      "domain": "career",
+      "goal": "I want a job at Meta",
+      "context": "React specialist, 3 years",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected meta, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.16,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: meta, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 12,
+      "domain": "career",
+      "goal": "I want a job at meta",
+      "context": "React specialist, 3 years",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected meta, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.16,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: meta, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 13,
+      "domain": "career",
+      "goal": "I want a job at Netflix",
+      "context": "Streaming platform experience",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected netflix, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.45,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: netflix, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 14,
+      "domain": "career",
+      "goal": "I want a job at netflix",
+      "context": "Streaming platform experience",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected netflix, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.45,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: netflix, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 15,
+      "domain": "career",
+      "goal": "Get a software engineering role",
+      "context": "Northwestern grad, 10 years experience, Python expert",
+      "success": true,
+      "issues": [
+        "education mismatch: expected 90, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.95,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "education_extraction": "\u274c FAIL - Expected: 90, Got: None"
+    },
+    {
+      "test_id": 16,
+      "domain": "career",
+      "goal": "Get a software engineering role",
+      "context": "Harvard CS PhD, published researcher",
+      "success": true,
+      "issues": [
+        "education mismatch: expected 90, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.48,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "education_extraction": "\u274c FAIL - Expected: 90, Got: None"
+    },
+    {
+      "test_id": 17,
+      "domain": "career",
+      "goal": "Get a software engineering role",
+      "context": "MIT grad, startup founder, 15 years experience",
+      "success": true,
+      "issues": [
+        "education mismatch: expected 90, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.95,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "education_extraction": "\u274c FAIL - Expected: 90, Got: None"
+    },
+    {
+      "test_id": 18,
+      "domain": "career",
+      "goal": "Get a software engineering role",
+      "context": "Bootcamp grad, 6 months experience",
+      "success": true,
+      "issues": [
+        "education mismatch: expected 70, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.72,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "education_extraction": "\u274c FAIL - Expected: 70, Got: None"
+    },
+    {
+      "test_id": 19,
+      "domain": "career",
+      "goal": "Get a software engineering role",
+      "context": "Self-taught, no degree, 2 years experience",
+      "success": true,
+      "issues": [],
+      "extracted_data": {
+        "probability": 0.6,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "education_extraction": "\u2705 PASS"
+    },
+    {
+      "test_id": 20,
+      "domain": "career",
+      "goal": "Get a software engineering role",
+      "context": "Community college, working 20 hours/week studying",
+      "success": true,
+      "issues": [
+        "hours_per_day mismatch: expected 20, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.6,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "hours_per_day_extraction": "\u274c FAIL - Expected: 20, Got: None"
+    },
+    {
+      "test_id": 21,
+      "domain": "career",
+      "goal": "Get promoted to senior engineer",
+      "context": "Working 8 hours/day, 2 years at current company",
+      "success": true,
+      "issues": [
+        "hours_per_day mismatch: expected 8, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.95,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "hours_per_day_extraction": "\u274c FAIL - Expected: 8, Got: None"
+    },
+    {
+      "test_id": 22,
+      "domain": "career",
+      "goal": "Switch to data science career",
+      "context": "Studying 4 hours/day for 6 months",
+      "success": true,
+      "issues": [
+        "hours_per_day mismatch: expected 4, got None",
+        "timeline_months mismatch: expected 6, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.6,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "hours_per_day_extraction": "\u274c FAIL - Expected: 4, Got: None",
+      "timeline_months_extraction": "\u274c FAIL - Expected: 6, Got: None"
+    },
+    {
+      "test_id": 23,
+      "domain": "career",
+      "goal": "Become a technical lead",
+      "context": "10 hours/day effort, 18-month timeline",
+      "success": true,
+      "issues": [
+        "hours_per_day mismatch: expected 10, got None",
+        "timeline_months mismatch: expected 18, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.45,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "hours_per_day_extraction": "\u274c FAIL - Expected: 10, Got: None",
+      "timeline_months_extraction": "\u274c FAIL - Expected: 18, Got: None"
+    },
+    {
+      "test_id": 24,
+      "domain": "career",
+      "goal": "Get into FAANG company",
+      "context": "Practicing 6 hours/day leetcode for 8 months",
+      "success": true,
+      "issues": [
+        "hours_per_day mismatch: expected 6, got None",
+        "timeline_months mismatch: expected 8, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.4,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "hours_per_day_extraction": "\u274c FAIL - Expected: 6, Got: None",
+      "timeline_months_extraction": "\u274c FAIL - Expected: 8, Got: None"
+    },
+    {
+      "test_id": 25,
+      "domain": "career",
+      "goal": "Land remote software job",
+      "context": "Available immediately, 40 hours/week commitment",
+      "success": true,
+      "issues": [
+        "hours_per_day mismatch: expected 40, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.14,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "hours_per_day_extraction": "\u274c FAIL - Expected: 40, Got: None"
+    },
+    {
+      "test_id": 26,
+      "domain": "finance",
+      "goal": "Make $1 million in the stock market",
+      "context": "$50k starting capital, 5 years timeline",
+      "success": true,
+      "issues": [
+        "timeline_months mismatch: expected 60, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.95,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "timeline_months_extraction": "\u274c FAIL - Expected: 60, Got: None"
+    },
+    {
+      "test_id": 27,
+      "domain": "finance",
+      "goal": "Double my investment portfolio",
+      "context": "$100k current portfolio, 3 years",
+      "success": true,
+      "issues": [
+        "timeline_months mismatch: expected 36, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.74,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "timeline_months_extraction": "\u274c FAIL - Expected: 36, Got: None"
+    },
+    {
+      "test_id": 28,
+      "domain": "finance",
+      "goal": "Earn $5k/month passive income",
+      "context": "$200k to invest, real estate focus",
+      "success": true,
+      "issues": [],
+      "extracted_data": {
+        "probability": 0.8,
+        "extracted_variables": {},
+        "standardized_data": {}
+      }
+    },
+    {
+      "test_id": 29,
+      "domain": "finance",
+      "goal": "Build $500k retirement fund",
+      "context": "Age 35, saving $2k/month",
+      "success": true,
+      "issues": [
+        "age mismatch: expected 35, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.86,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "age_extraction": "\u274c FAIL - Expected: 35, Got: None"
+    },
+    {
+      "test_id": 30,
+      "domain": "finance",
+      "goal": "Pay off $80k student loans",
+      "context": "$60k salary, $1k/month payment capacity",
+      "success": true,
+      "issues": [
+        "target_salary mismatch: expected 60000, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.27,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "target_salary_extraction": "\u274c FAIL - Expected: 60000, Got: None"
+    },
+    {
+      "test_id": 31,
+      "domain": "finance",
+      "goal": "Increase salary to $150k",
+      "context": "Currently $90k, software engineer, 4 years experience",
+      "success": true,
+      "issues": [
+        "target_salary mismatch: expected 150000, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.4,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "target_salary_extraction": "\u274c FAIL - Expected: 150000, Got: None"
+    },
+    {
+      "test_id": 32,
+      "domain": "finance",
+      "goal": "Earn $300k total compensation",
+      "context": "Senior engineer at startup, equity included",
+      "success": true,
+      "issues": [
+        "target_salary mismatch: expected 300000, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.22,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "target_salary_extraction": "\u274c FAIL - Expected: 300000, Got: None"
+    },
+    {
+      "test_id": 33,
+      "domain": "finance",
+      "goal": "Make $10k/month freelancing",
+      "context": "Web developer, working 30 hours/week",
+      "success": true,
+      "issues": [
+        "hours_per_day mismatch: expected 30, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.76,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "hours_per_day_extraction": "\u274c FAIL - Expected: 30, Got: None"
+    },
+    {
+      "test_id": 34,
+      "domain": "finance",
+      "goal": "Generate $2k/week side income",
+      "context": "Full-time job, 15 hours/week available",
+      "success": true,
+      "issues": [
+        "hours_per_day mismatch: expected 15, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.45,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "hours_per_day_extraction": "\u274c FAIL - Expected: 15, Got: None"
+    },
+    {
+      "test_id": 35,
+      "domain": "finance",
+      "goal": "Reach $500k annual income",
+      "context": "Starting consulting business, 10 years experience",
+      "success": true,
+      "issues": [
+        "target_salary mismatch: expected 500000, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.56,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "target_salary_extraction": "\u274c FAIL - Expected: 500000, Got: None"
+    },
+    {
+      "test_id": 36,
+      "domain": "finance",
+      "goal": "Raise $2M Series A funding",
+      "context": "SaaS startup, $50k MRR, 2 co-founders",
+      "success": true,
+      "issues": [],
+      "extracted_data": {
+        "probability": 0.54,
+        "extracted_variables": {},
+        "standardized_data": {}
+      }
+    },
+    {
+      "test_id": 37,
+      "domain": "finance",
+      "goal": "Sell business for $5M",
+      "context": "E-commerce business, $100k/month revenue",
+      "success": true,
+      "issues": [],
+      "extracted_data": {
+        "probability": 0.45,
+        "extracted_variables": {},
+        "standardized_data": {}
+      }
+    },
+    {
+      "test_id": 38,
+      "domain": "finance",
+      "goal": "Launch profitable app",
+      "context": "$20k development budget, 8 months timeline",
+      "success": true,
+      "issues": [
+        "timeline_months mismatch: expected 8, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.72,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "timeline_months_extraction": "\u274c FAIL - Expected: 8, Got: None"
+    },
+    {
+      "test_id": 39,
+      "domain": "finance",
+      "goal": "Build $1M ARR SaaS",
+      "context": "Technical founder, working full-time",
+      "success": true,
+      "issues": [],
+      "extracted_data": {
+        "probability": 0.45,
+        "extracted_variables": {},
+        "standardized_data": {}
+      }
+    },
+    {
+      "test_id": 40,
+      "domain": "finance",
+      "goal": "Exit startup for $50M",
+      "context": "Series B funded, 50 employees",
+      "success": true,
+      "issues": [],
+      "extracted_data": {
+        "probability": 0.54,
+        "extracted_variables": {},
+        "standardized_data": {}
+      }
+    },
+    {
+      "test_id": 41,
+      "domain": "finance",
+      "goal": "Save $100k for house down payment",
+      "context": "Age 28, $80k salary, saving $1.5k/month",
+      "success": true,
+      "issues": [
+        "age mismatch: expected 28, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.24,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "age_extraction": "\u274c FAIL - Expected: 28, Got: None"
+    },
+    {
+      "test_id": 42,
+      "domain": "finance",
+      "goal": "Accumulate $2M net worth",
+      "context": "Age 40, $200k household income",
+      "success": true,
+      "issues": [
+        "age mismatch: expected 40, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.45,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "age_extraction": "\u274c FAIL - Expected: 40, Got: None"
+    },
+    {
+      "test_id": 43,
+      "domain": "finance",
+      "goal": "Retire by age 45",
+      "context": "$500k current assets, $150k income",
+      "success": true,
+      "issues": [
+        "age mismatch: expected 45, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.45,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "age_extraction": "\u274c FAIL - Expected: 45, Got: None"
+    },
+    {
+      "test_id": 44,
+      "domain": "finance",
+      "goal": "Build emergency fund of $50k",
+      "context": "$5k/month expenses, saving $2k/month",
+      "success": true,
+      "issues": [],
+      "extracted_data": {
+        "probability": 0.86,
+        "extracted_variables": {},
+        "standardized_data": {}
+      }
+    },
+    {
+      "test_id": 45,
+      "domain": "finance",
+      "goal": "Pay off mortgage early",
+      "context": "$300k remaining, 15 years left, extra $1k/month",
+      "success": true,
+      "issues": [],
+      "extracted_data": {
+        "probability": 0.4,
+        "extracted_variables": {},
+        "standardized_data": {}
+      }
+    },
+    {
+      "test_id": 46,
+      "domain": "fitness",
+      "goal": "Lose 50 pounds",
+      "context": "Age 32, working out 5 hours/week, 6-month timeline",
+      "success": true,
+      "issues": [
+        "age mismatch: expected 32, got None",
+        "hours_per_day mismatch: expected 5, got None",
+        "timeline_months mismatch: expected 6, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.45,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "age_extraction": "\u274c FAIL - Expected: 32, Got: None",
+      "hours_per_day_extraction": "\u274c FAIL - Expected: 5, Got: None",
+      "timeline_months_extraction": "\u274c FAIL - Expected: 6, Got: None"
+    },
+    {
+      "test_id": 47,
+      "domain": "fitness",
+      "goal": "Gain 20 pounds muscle",
+      "context": "Lifting 6 hours/week, protein diet, 1 year timeline",
+      "success": true,
+      "issues": [
+        "hours_per_day mismatch: expected 6, got None",
+        "timeline_months mismatch: expected 12, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.45,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "hours_per_day_extraction": "\u274c FAIL - Expected: 6, Got: None",
+      "timeline_months_extraction": "\u274c FAIL - Expected: 12, Got: None"
+    },
+    {
+      "test_id": 48,
+      "domain": "fitness",
+      "goal": "Get to 10% body fat",
+      "context": "Currently 18%, training 8 hours/week",
+      "success": true,
+      "issues": [
+        "hours_per_day mismatch: expected 8, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.8,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "hours_per_day_extraction": "\u274c FAIL - Expected: 8, Got: None"
+    },
+    {
+      "test_id": 49,
+      "domain": "fitness",
+      "goal": "Run sub-3-hour marathon",
+      "context": "Current PR 3:30, running 8 hours/week",
+      "success": true,
+      "issues": [
+        "hours_per_day mismatch: expected 8, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.45,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "hours_per_day_extraction": "\u274c FAIL - Expected: 8, Got: None"
+    },
+    {
+      "test_id": 50,
+      "domain": "fitness",
+      "goal": "Complete Ironman triathlon",
+      "context": "Training 12 hours/week, 18-month timeline",
+      "success": true,
+      "issues": [
+        "hours_per_day mismatch: expected 12, got None",
+        "timeline_months mismatch: expected 18, got None"
+      ],
+      "extracted_data": {
+        "probability": 0.45,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "hours_per_day_extraction": "\u274c FAIL - Expected: 12, Got: None",
+      "timeline_months_extraction": "\u274c FAIL - Expected: 18, Got: None"
+    }
+  ],
+  "failed_tests": [
+    {
+      "test_id": 1,
+      "domain": "career",
+      "goal": "I want a job at OpenAI",
+      "context": "CS grad, 2 years experience",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected openai, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.18,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: openai, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 2,
+      "domain": "career",
+      "goal": "I want a job at open ai",
+      "context": "CS grad, 2 years experience",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected openai, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.45,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: openai, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 3,
+      "domain": "career",
+      "goal": "I want a job at OPENAI",
+      "context": "CS grad, 2 years experience",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected openai, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.18,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: openai, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 4,
+      "domain": "career",
+      "goal": "I want a job at Google",
+      "context": "Northwestern grad, age 24",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected google, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.18,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: google, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 5,
+      "domain": "career",
+      "goal": "I want a job at google",
+      "context": "Northwestern grad, age 24",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected google, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.18,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: google, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 6,
+      "domain": "career",
+      "goal": "I want a job at GOOGLE",
+      "context": "Northwestern grad, age 24",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected google, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.18,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: google, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 7,
+      "domain": "career",
+      "goal": "I want a job at Apple",
+      "context": "Stanford CS degree",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected apple, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.6,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: apple, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 8,
+      "domain": "career",
+      "goal": "I want a job at apple",
+      "context": "Stanford CS degree",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected apple, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.6,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: apple, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 9,
+      "domain": "career",
+      "goal": "I want a job at Microsoft",
+      "context": "5 years coding experience",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected microsoft, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.16,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: microsoft, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 10,
+      "domain": "career",
+      "goal": "I want a job at microsoft",
+      "context": "5 years coding experience",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected microsoft, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.16,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: microsoft, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 11,
+      "domain": "career",
+      "goal": "I want a job at Meta",
+      "context": "React specialist, 3 years",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected meta, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.16,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: meta, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 12,
+      "domain": "career",
+      "goal": "I want a job at meta",
+      "context": "React specialist, 3 years",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected meta, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.16,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: meta, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 13,
+      "domain": "career",
+      "goal": "I want a job at Netflix",
+      "context": "Streaming platform experience",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected netflix, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.45,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: netflix, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    },
+    {
+      "test_id": 14,
+      "domain": "career",
+      "goal": "I want a job at netflix",
+      "context": "Streaming platform experience",
+      "success": false,
+      "issues": [
+        "Company mismatch: expected netflix, got None",
+        "Low/missing selectivity score: None"
+      ],
+      "extracted_data": {
+        "probability": 0.45,
+        "extracted_variables": {},
+        "standardized_data": {}
+      },
+      "company_extraction": "\u274c FAIL - Expected: netflix, Got: None",
+      "selectivity_detection": "\u274c FAIL - Selectivity: None"
+    }
+  ]
+}
