@@ -36,7 +36,7 @@ def _try_anthropic_goal_analysis(goal_string, api_key):
     }
     
     payload = {
-        "model": "claude-3-5-sonnet-20241022",
+        "model": "claude-3-haiku-20240307",
         "max_tokens": 200,
         "messages": [
             {
@@ -65,8 +65,15 @@ Format your response as JSON:
         result = response.json()
         content = result['content'][0]['text'].strip()
         
-        # Parse JSON response
-        parsed = json.loads(content)
+        # Extract JSON from the response (Claude often adds explanatory text)
+        json_start = content.find('{')
+        json_end = content.rfind('}') + 1
+        
+        if json_start != -1 and json_end > json_start:
+            json_content = content[json_start:json_end]
+            parsed = json.loads(json_content)
+        else:
+            raise Exception("No JSON found in response")
         print(f"🎯 Phase 1 (Anthropic) - Goal: {parsed['goal']}, Domain: {parsed['domain']}")
         return parsed
         
@@ -158,7 +165,7 @@ def _try_anthropic_variable_extraction(context_string, goal_info, api_key):
     goal = goal_info.get('goal', '') if goal_info else ''
     
     payload = {
-        "model": "claude-3-5-sonnet-20241022",
+        "model": "claude-3-haiku-20240307",
         "max_tokens": 500,
         "messages": [
             {
@@ -213,8 +220,15 @@ Format as JSON:
         result = response.json()
         content = result['content'][0]['text'].strip()
         
-        # Parse JSON response
-        parsed = json.loads(content)
+        # Extract JSON from the response (Claude often adds explanatory text)
+        json_start = content.find('{')
+        json_end = content.rfind('}') + 1
+        
+        if json_start != -1 and json_end > json_start:
+            json_content = content[json_start:json_end]
+            parsed = json.loads(json_content)
+        else:
+            raise Exception("No JSON found in response")
         print(f"🔍 Phase 2 (Anthropic) - Variables: {parsed['variables']}")
         print(f"📂 Categories: {parsed['categories']}")
         return parsed
@@ -330,11 +344,14 @@ def standardize_to_integers(variables, categories):
             value = variables[exp_var]
             standardized.update(parse_experience_to_int(exp_var, value))
             
-    # Process target entity
+    # Process target entity - check both variables and categories list
     for target_var in categories.get('target_entity', []):
         if target_var in variables:
             value = variables[target_var]
             standardized.update(parse_target_to_int(target_var, value))
+        else:
+            # Target entity might be in the category list directly (OpenAI, etc.)
+            standardized.update(parse_target_to_int(target_var, target_var))
     
     print(f"📊 Standardized data: {standardized}")
     return standardized
@@ -409,8 +426,14 @@ def parse_demographic_to_int(name, value):
 
 def parse_experience_to_int(name, value):
     """Convert experience strings to integers/flags"""
+    import re
     result = {}
     value_lower = value.lower()
+    
+    # Extract years of experience
+    numbers = re.findall(r'\d+', value)
+    if numbers and ('year' in value_lower or 'experience' in value_lower):
+        result['experience_years'] = int(numbers[0])
     
     # Education level
     if any(school in value_lower for school in ['northwestern', 'harvard', 'mit', 'stanford']):
